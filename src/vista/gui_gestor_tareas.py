@@ -1,31 +1,6 @@
 from PyQt6 import QtWidgets, QtCore
+from src.logica.gestor_tareas import GestorTareas
 import sys
-
-# Clase Tarea que representa una tarea con título, descripción y estado de completada
-class Tarea:
-    def __init__(self, titulo, descripcion):
-        self.titulo = titulo
-        self.descripcion = descripcion
-        self.completada = False
-
-# Clase GestorTareas que maneja la lista de tareas y sus operaciones
-class GestorTareas:
-    def __init__(self):
-        self.tareas = []
-
-    def agregar_tarea(self, titulo, descripcion):
-        if not titulo:
-            raise ValueError("El título no puede estar vacío")
-        tarea = Tarea(titulo, descripcion)
-        self.tareas.append(tarea)
-
-    def marcar_completada(self, indice):
-        if 0 <= indice < len(self.tareas):
-            self.tareas[indice].completada = True
-
-    def eliminar_tarea(self, indice):
-        if 0 <= indice < len(self.tareas):
-            del self.tareas[indice]
 
 
 # Clase para la Interfaz Gráfica de Usuario (GUI) usando PyQt6
@@ -106,6 +81,5 @@ def main():
     sys.exit(app.exec())
 
 
-# Ejecutar la aplicación
 if __name__ == "__main__":
     main()
